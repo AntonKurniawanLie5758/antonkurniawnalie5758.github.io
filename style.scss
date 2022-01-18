@@ -1,0 +1,320 @@
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 800;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
+}
+
+.default-section {
+  padding: 30px 0;
+}
+
+.first-container-wrapper {
+  position: relative;
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+
+  .navbar {
+    background: rgba(83, 83, 83, 0.4);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    width: 100%;
+    height: 30px;
+    font-family: "San Francisco";
+
+    .navbar-label-wrapper {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+      padding-left: 20px;
+      margin-top: -0.2em;
+
+      .navbar-label {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 14px;
+
+        &.active {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .first-content-wrapper {
+    height: 100vh;
+    padding: 0 7rem;
+    @media screen and (max-width: 480px) {
+      padding: 0 1rem;
+      flex-direction: column-reverse;
+
+      .photo-wrapper {
+        display: none;
+        .photo {
+          transform: scale(0.7) !important;
+          left: 30px !important;
+          top: 0 !important;
+        }
+      }
+
+      .label-wrapper {
+        .greeting-label {
+          font-size: 24px !important;
+        }
+
+        .job-label {
+          font-size: 24px !important;
+        }
+      }
+    }
+
+    .label-wrapper {
+      text-align: left;
+      letter-spacing: 2px;
+      font-weight: bold;
+      color: #333;
+
+      .greeting-label {
+        font-size: 31px;
+      }
+
+      .name-label {
+        font-size: 61px;
+
+        span {
+          color: #8cbcd8;
+        }
+      }
+
+      .job-label {
+        font-size: 31px;
+      }
+    }
+
+    .photo-wrapper {
+      position: relative;
+
+      .photo {
+        position: absolute;
+        top: 85px;
+        left: 8rem;
+        image-rendering: revert;
+        transform: scale(1.197);
+      }
+    }
+  }
+
+  .social-icon-wrapper {
+    position: absolute;
+    left: 15px;
+    top: 45%;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      text-decoration: none;
+      color: #333;
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        color: #8cbcd8;
+        transform: scale(1.1);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
+
+    .icon {
+      padding: 5px;
+      font-size: 25px;
+    }
+  }
+}
+
+button {
+  position: relative;
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  border-radius: 40px;
+  border: none;
+}
+
+button a {
+  text-decoration: none;
+}
+
+button span {
+  position: relative;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 5px;
+  z-index: 1;
+}
+
+button .liquid {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: #0f6292;
+  box-shadow: inset 0 0 50px rgba(208, 224, 235, 0.5);
+  transition: 0.5s;
+}
+
+button .liquid::after,
+button .liquid::before {
+  content: "";
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  background: #fff;
+}
+
+button .liquid::before {
+  border-radius: 45%;
+  background: rgba(80, 180, 223, 1);
+  animation: animate 5s linear infinite;
+}
+
+button .liquid::after {
+  border-radius: 40%;
+  background: rgba(80, 180, 223, 0.5);
+  animation: animate 10s linear infinite;
+}
+
+button:hover .liquid {
+  top: -120px;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+
+.dock {
+  width: auto;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .dock-container {
+    padding: 3px;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: rgba(83, 83, 83, 0.25);
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    .li-bin {
+      margin-left: 20px;
+      border-left: 1.5px solid rgba(255, 255, 255, 0.4);
+      padding: 0px 10px;
+    }
+    .li-1 {
+      &::after {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        content: "";
+        bottom: 2px;
+      }
+    }
+
+    li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      vertical-align: bottom;
+      transition: 0.2s;
+      transform-origin: 50% 100%;
+      &:hover {
+        margin: 0px 13px 0px 13px;
+      }
+
+      .name {
+        position: absolute;
+        top: -60px;
+        background: rgba(0, 0, 0, 0.5);
+        color: rgba(255, 255, 255, 0.9);
+        height: 10px;
+        padding: 12px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        visibility: hidden;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          width: 0;
+          height: 0;
+          backdrop-filter: blur(13px);
+          -webkit-backdrop-filter: blur(13px);
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 10px solid rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      .ico {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.2s;
+      }
+      .ico-bin {
+        width: 94% !important;
+        height: 94% !important;
+        object-fit: cover;
+        transition: 0.2s;
+
+        &:hover {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+@for $i from 1 through 15 {
+  .li-#{$i}:hover {
+    .name {
+      visibility: visible !important;
+    }
+  }
+}
